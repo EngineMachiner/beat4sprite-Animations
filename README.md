@@ -1,6 +1,6 @@
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W32691S)
 
-# beat4sprite-OutFox
+# beat4sprite-Animations
 
 This repository contains collections of gameplay animations for **[OutFox](https://github.com/TeamRizu/OutFox)** using **[beat4sprite](https://github.com/EngineMachiner/beat4sprite)**.
 
