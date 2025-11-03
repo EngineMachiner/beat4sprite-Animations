@@ -17,8 +17,8 @@ Each branch in this repository contains theme inspired animations.
   2. Run the next command in the game directory:
 
   ```console
-  curl -o beat4sprite-OutFox.sh https://raw.githubusercontent.com/EngineMachiner/beat4sprite-OutFox/refs/heads/main/setup.sh
-  ./beat4sprite-OutFox.sh;  rm beat4sprite-OutFox.sh
+  curl -o beat4sprite-Animations.sh https://raw.githubusercontent.com/EngineMachiner/beat4sprite-Animations/refs/heads/main/setup.sh
+  ./beat4sprite-Animations.sh;  rm beat4sprite-Animations.sh
   ```
 
 ---
