@@ -3,12 +3,12 @@ set -e
 
 TARGET="Modules";         if [ -d "Appearance" ]; then TARGET="Appearance/Themes/_fallback"; fi      
 
-DIRECTORY="beat4sprite-OutFox"
+DIRECTORY="beat4sprite-Animations"
 
 
 # Clone repository.
 
-REPOSITORY="https://github.com/EngineMachiner/beat4sprite-OutFox.git"
+REPOSITORY="https://github.com/EngineMachiner/beat4sprite-Animations.git"
 
 git clone "$REPOSITORY" "$DIRECTORY"
 
