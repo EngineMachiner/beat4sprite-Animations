@@ -37,7 +37,7 @@ while true; do
 
     select OPTION in "Yes" "No"; do break; done
 
-    if [ $OPTION == "No" ]; then break; fi
+    if [ "$OPTION" == "No" ]; then break; fi
 
 done
 
