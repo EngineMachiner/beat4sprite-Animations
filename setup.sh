@@ -42,4 +42,4 @@ while true; do
 done
 
 
-rm -rf "$DIRECTORY";        echo "Exiting..."
+rm -rf "$DIRECTORY"
