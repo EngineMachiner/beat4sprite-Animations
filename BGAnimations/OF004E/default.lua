@@ -1,5 +1,5 @@
 
-local SoundWaves = beat4sprite.Modules.SoundWaves           local planeAxes = Astro.Vector.planeAxes
+local SoundWaves = beat4sprite.Modules.SoundWaves           local componentProduct = Astro.Vector.componentDivision
 
 return beat4sprite.ActorFrame {
 
@@ -19,7 +19,7 @@ return beat4sprite.ActorFrame {
 
                 local matrix = self.TileParent.Matrix          local offset = self.TilePos
 
-                for i,v in ipairs(planeAxes) do offset[v] = offset[v] * 0.5 / matrix[v] end
+                offset = componentDivision( offset, matrix ) * 0.5
 
                 self:setEffectOffset(offset):setEffect("diffuseshift")
 
