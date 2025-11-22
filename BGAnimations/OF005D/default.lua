@@ -6,9 +6,11 @@ local SoundWaves = beat4sprite.Modules.SoundWaves           local graphic = Soun
 local preferences = SoundWaves.preferences()                local Color = preferences.Colors.titleBGPattern
 
 
+local rate = beat4sprite.Actor.statesRate
+
 local function random() return math.random( 90, 360 ) end
 
-local Path = beat4sprite.filePath("OF005A")
+local Path = beat4sprite.animationPath("OF005A")
 
 local checkerBoard = loadfile(Path) {
 
@@ -16,7 +18,7 @@ local checkerBoard = loadfile(Path) {
 
     SpinCommand=function(self)
 
-        local t = self:rate() * 8           local rotation = Vector()
+        local t = rate(self) * 8           local rotation = Vector()
 
         for i,v in ipairs(planeAxes) do rotation[v] = random() end
 

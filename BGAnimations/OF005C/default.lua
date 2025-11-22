@@ -1,5 +1,5 @@
 
-local Path = beat4sprite.filePath("OF005A")
+local Path = beat4sprite.animationPath("OF005A")
 
 return loadfile(Path) {
     

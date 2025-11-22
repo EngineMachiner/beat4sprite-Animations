@@ -20,9 +20,9 @@ local function Actor(t)
 
     return builder:merge(t):Load() .. {
 
-        OnCommand=function(self) self:init(builder):diffusealpha(0):queuecommand("Cycle") end,
-
         CycleSetupCommand=function(self) self:playcommand("Animation") end,
+
+        CycleOnCommand=function(self) self:init(builder):diffusealpha(0):queuecommand("Cycle") end,
 
         AnimationCommand=function(self) self:linear(1):diffusealpha(0.75):sleep(6):linear(1):diffusealpha(0) end,
 

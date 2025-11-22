@@ -1,4 +1,4 @@
 
-local Path = beat4sprite.filePath("OF006A")
+local Path = beat4sprite.animationPath("OF006A")
 
 return loadfile(Path) { ScreenScale = false }

@@ -1,5 +1,5 @@
 
-local Path = beat4sprite.filePath("OF006A")
+local Path = beat4sprite.animationPath("OF006A")
 
 local SoundWaves = beat4sprite.Modules.SoundWaves           local graphic = SoundWaves.graphic
 

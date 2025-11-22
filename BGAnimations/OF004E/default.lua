@@ -1,5 +1,5 @@
 
-local SoundWaves = beat4sprite.Modules.SoundWaves           local componentProduct = Astro.Vector.componentDivision
+local SoundWaves = beat4sprite.Modules.SoundWaves           local componentDivision = Astro.Vector.componentDivision
 
 return beat4sprite.ActorFrame {
 
