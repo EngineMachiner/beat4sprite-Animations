@@ -26,7 +26,7 @@ local function Background( table )
         self:effectclock("beat"):set_use_effect_clock_for_texcoords(true)
         
 
-        local y = statesRate(self) / 24
+        local y = statesRate(self) * 4         y = 1 / y
 
         self:texcoordvelocity(0, y):fadebottom(1)            self:halign(0.5):valign(0)
     

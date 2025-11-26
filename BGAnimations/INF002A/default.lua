@@ -5,7 +5,7 @@ local statesRate = beat4sprite.Actor.statesRate
 
 local function onChildren(self)
 
-    local x = statesRate(self) / 64         self:texcoordvelocity(x, 0)
+    local x = statesRate(self) * 16         x = 1 / x         self:texcoordvelocity(x, 0)
 
 end
 
