@@ -35,6 +35,8 @@ local BigRing = Def.ActorFrame {
 
 		OnCommand=function(self)
 			
+            if self:GetTexture() then return end
+
 			self:setsize( SCREEN_WIDTH, SCREEN_HEIGHT ):EnableAlphaBuffer(true):Create()
 			
 			self:GetParent().Texture = self:GetTexture()

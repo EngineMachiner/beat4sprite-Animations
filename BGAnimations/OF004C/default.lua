@@ -69,12 +69,14 @@ return beat4sprite.ActorFrame {
 
         OnCommand=function(self)
 
-            local pos = Vector( SCREEN_WIDTH, Height )
+            local pos = Vector( SCREEN_WIDTH, Height )          self:GetChild(""):setPos( pos * 0.5 )
+
+            if self:GetTexture() then return end
+
 
             self:setSizeVector(pos):EnableAlphaBuffer(true):Create()
 
-            
-            self:GetChild(""):setPos( pos * 0.5 )           self:queuecommand("Tile")
+            self:queuecommand("Tile")
 
         end,
 
