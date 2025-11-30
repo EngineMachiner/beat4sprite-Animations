@@ -36,19 +36,12 @@ for i = 1, n do
     t[#t+1] = beat4sprite.Quad {
 
         OnCommand=function(self)
+        
+            local w = SCREEN_WIDTH / n          self:setsize( w, SCREEN_HEIGHT ):onGameplay()
 
-            self:onGameplay():setsize( 25, SCREEN_WIDTH ):CenterY():zoom(zoom)
+            local i = i - 0.5                   self:x( w * i ):CenterY():zoom(zoom)
 
-            self:diffuse(color):diffusealpha(0):fadeHorizontally(0.475)
-
-
-            local isFlipped = i > n / 2         local i = isFlipped and i - n / 2 or i
-
-            local x = 200 * i                   local r = 45
-            
-            if isFlipped then x = SCREEN_WIDTH - x      r = - 45 end
-
-            self:x(x):rotationz(r)
+            self:diffuse(color):diffusealpha(0):fadetop(0.5)
 
         end,
 
@@ -63,7 +56,7 @@ for i = 1, n do
 
             local rate = self:statesRate()
 
-            self:stoptweening():linear( rate * 0.5 ):diffusealpha(1):linear(rate):diffusealpha(0)
+            self:stoptweening():linear( rate * 0.5 ):diffusealpha(0.5):linear(rate):diffusealpha(0)
 
         end
 

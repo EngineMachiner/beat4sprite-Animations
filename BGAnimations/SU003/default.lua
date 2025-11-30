@@ -17,9 +17,9 @@ for j = 1, 5 do
 
         OnCommand=function(self)
             
-            local rate = self:statesRate() * j
+            self:init(Builder)
 
-            self:init(Builder):sleep(rate):queuecommand("Spin")
+            local rate = self:statesRate() * j * 4          self:sleep(rate):queuecommand("Spin")
         
         end,
 
@@ -55,4 +55,4 @@ for j = 1, 5 do
 
 end
     
-return beat4sprite.ActorFrame{ Background:Load(), t }
+return beat4sprite.BaseFrame { Background:Load(), t }

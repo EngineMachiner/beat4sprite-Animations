@@ -1,7 +1,4 @@
 
--- TODO: Color variants, rotation variants, circular pattern.
--- TODO: diffuseshift on quads placed around centered-like with effectoffset.
-
 -- The isFocused variable helps to wait for OnCommand to execute first and to only execute 
 -- once per players.
 
@@ -18,9 +15,9 @@ local Background = Superuser.Background():merge {
 
 }
 
-local t = beat4sprite.ActorFrame {
+local t = beat4sprite.BaseFrame {
 
-    OnCommand=function(self) self:zoom(zoom)    isFocused = true    selected = 0 end,
+    OnCommand=function(self) isFocused = true    selected = 0 end,
 
     SelectCommand=function(self)
         
@@ -36,7 +33,11 @@ for i = 1, n do
 
     local color = tapLua.Color.random()         local Builder = beat4sprite.Builder {}
 
-    local p = beat4sprite.ActorFrame { OnCommand=function(self) self:Center():rotationz( - 45 * i ) end }
+    local p = beat4sprite.ActorFrame {
+        
+        OnCommand=function(self) self:Center():zoom(zoom):rotationz( - 45 * i ) end
+    
+    }
 
     t[#t+1] = p
 
@@ -46,11 +47,11 @@ for i = 1, n do
 
         OnCommand=function(self)
 
-            local i = i - 1
+            self:init(Builder):initSprite()
             
-            self:init(Builder):initSprite():setsize( 128, 128 ):diffuse(color):diffusealpha(0)
+            self:setsize( 128, 128 ):diffuse(color):diffusealpha(0)
 
-            self:x( 32 + 16 * i )
+            local i = i - 1         self:x( 32 + 16 * i )
 
         end,
 
@@ -65,11 +66,9 @@ for i = 1, n do
             isFocused = false       self:GetParent():GetParent():queuecommand("Select")
 
 
-            mindbox.sysPrint( self.statesDelay )
-
             local rate = self:statesRate() / 4
 
-            self:stoptweening():linear( rate * 0.5 ):diffusealpha(1):linear( rate * 2 ):diffusealpha(0)
+            self:stoptweening():linear( rate * 0.5 ):diffusealpha(1):linear(rate):diffusealpha(0)
 
         end
 

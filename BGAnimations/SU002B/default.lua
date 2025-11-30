@@ -15,15 +15,11 @@ local Background = Superuser.Background():merge {
 
 }
 
-local t = beat4sprite.ActorFrame {
+local t = beat4sprite.BaseFrame {
 
-    OnCommand=function(self) self:zoom(zoom)    isFocused = true    selected = 0 end,
+    OnCommand=function(self) isFocused = true    selected = 0 end,
 
-    SelectCommand=function(self)
-        
-        isFocused = true        local t = selected      while selected == t do select() end
-
-    end,
+    SelectCommand=function(self) isFocused = true        select() end,
 
     Background:Load()
 
@@ -37,7 +33,7 @@ for i = 1, n do
 
         OnCommand=function(self)
         
-            self:setsize( 75, SCREEN_WIDTH ):CenterY()
+            self:onGameplay():setsize( 25, SCREEN_WIDTH ):CenterY():zoom(zoom)
 
             self:diffuse(color):diffusealpha(0):fadeHorizontally(0.475)
 
@@ -63,7 +59,7 @@ for i = 1, n do
             isFocused = false       self:GetParent():queuecommand("Select")
 
 
-            local rate = self:statesRate() / 4
+            local rate = self:statesRate()
 
             self:stoptweening():linear( rate * 0.5 ):diffusealpha(1):linear( rate * 2 ):diffusealpha(0)
 
