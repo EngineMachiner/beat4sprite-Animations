@@ -35,7 +35,7 @@ for i = 1, 2 do
 
 end
 
-local n = 4         local color = tapLua.Color.random()
+local n = 8         local color = tapLua.Color.random()
 
 for j = 1, 2 do for i = 1, n do
 
@@ -54,7 +54,7 @@ for j = 1, 2 do for i = 1, n do
             
             if j == 2 then self:rotationy(180) end          self:rotationz(angle)
 
-            self:init(Builder):z(-900):setEffect("spin")
+            self:init(Builder):z(-1000):setEffect("spin")
         
         end
 

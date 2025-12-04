@@ -11,15 +11,15 @@ local t = beat4sprite.ActorFrame { OnCommand=function(self) self:Center():diffus
 
 for j = 1, 5 do
 
-    local Builder = beat4sprite.Builder { Effect = { Magnitude = Astro.Vector { z = 3 + 2 * j } } }
+    local Builder = beat4sprite.Builder { Effect = { Magnitude = Astro.Vector { z = 5 + 2 * j } } }
 
     local t2 = beat4sprite.ActorFrame {
 
         OnCommand=function(self)
             
-            self:init(Builder)
+            local j = j - 1         local rate = self:statesRate() * j * 2
 
-            local rate = self:statesRate() * j * 4          self:sleep(rate):queuecommand("Spin")
+            self:init(Builder):sleep(rate):queuecommand("Spin")
         
         end,
 
@@ -33,7 +33,7 @@ for j = 1, 5 do
 
         local t3 = beat4sprite.ActorFrame {
 
-            OnCommand=function(self) self:rotationz( 90 * i % 360 ) end
+            OnCommand=function(self) self:rotationz( 90 * i ) end
 
         }
 

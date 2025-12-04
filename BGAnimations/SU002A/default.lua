@@ -61,9 +61,9 @@ for i = 1, n do
             isFocused = false       self:GetParent():queuecommand("Select")
 
 
-            local rate = self:statesRate()
+            local rate = self:statesRate() / 2
 
-            self:stoptweening():linear( rate * 0.5 ):diffusealpha(1):linear(rate):diffusealpha(0)
+            self:stoptweening():linear(rate):diffusealpha(1):linear(rate):diffusealpha(0)
 
         end
 

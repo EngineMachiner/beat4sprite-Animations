@@ -6,7 +6,7 @@ local zoom = SCREEN_HEIGHT / 720            local n = 10        local isFocused,
 
 local Superuser = beat4sprite.Modules.Superuser
 
-local function select() selected = selected + 1         selected = selected % n end
+local function select() selected = selected - 1         selected = selected % n end
 
 
 local Background = Superuser.Background():merge {
@@ -17,7 +17,7 @@ local Background = Superuser.Background():merge {
 
 local t = beat4sprite.BaseFrame {
 
-    OnCommand=function(self) isFocused = true    selected = 0 end,
+    OnCommand=function(self) isFocused = true    selected = n - 1 end,
 
     SelectCommand=function(self) isFocused = true        select() end,
 
@@ -27,32 +27,23 @@ local t = beat4sprite.BaseFrame {
 
 for i = 1, n do
 
-    local color = i > n / 2 and Color.Purple or Color.Red
+    local color = tapLua.Color.random()
 
     t[#t+1] = beat4sprite.Quad {
 
         OnCommand=function(self)
         
-            self:onGameplay():setsize( 25, SCREEN_WIDTH ):CenterY():zoom(zoom)
+            local w = SCREEN_WIDTH / n          self:setsize( w, SCREEN_HEIGHT ):onGameplay()
 
-            self:diffuse(color):diffusealpha(0):fadeHorizontally(0.475)
+            local i = i - 0.5                   self:x( w * i ):CenterY():zoom(zoom)
 
-
-            local isFlipped = i > n / 2         local i = isFlipped and i - n / 2 or i
-
-            local x = 200 * i                   local r = 45
-            
-            if isFlipped then x = SCREEN_WIDTH - x      r = - 45 end
-
-            self:x(x):rotationz(r)
+            self:diffuse(color):diffusealpha(0):fadetop(0.5)
 
         end,
 
         JudgmentMessageCommand=function(self, params)
 
-            local score = params.TapNoteScore
-            
-            local isValid = isFocused and not score:match("Miss")
+            local score = params.TapNoteScore           local isValid = isFocused and not score:match("Miss") 
 
             isValid = isValid and selected == i - 1         if not isValid then return end
             
@@ -61,7 +52,7 @@ for i = 1, n do
 
             local rate = self:statesRate()
 
-            self:stoptweening():linear( rate * 0.5 ):diffusealpha(1):linear( rate * 1.25 ):diffusealpha(0)
+            self:stoptweening():linear( rate * 0.5 ):diffusealpha(0.5):linear(rate):diffusealpha(0)
 
         end
 
