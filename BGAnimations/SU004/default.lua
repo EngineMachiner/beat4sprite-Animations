@@ -43,7 +43,7 @@ for i = 1, n do
 
     p[#p+1] = beat4sprite.Sprite {
 
-        Texture = beat4sprite.Path .. "Resources/Superuser/circle.png",
+        Texture = "circle.png",
 
         OnCommand=function(self)
 
