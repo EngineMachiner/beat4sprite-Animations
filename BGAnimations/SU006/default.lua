@@ -13,7 +13,7 @@ local Background = Superuser.Background():merge {
 
 local t = beat4sprite.ActorFrame {
     
-    OnCommand=function(self) self:setupDepth(100):CenterX():y(250) end
+    OnCommand=function(self) self:setupDepth(100):CenterX():y(250):zoom(zoom) end
 
 }
 
@@ -68,7 +68,7 @@ for j = 1, 2 do for i = 1, n do
 
             OnCommand=function(self)
             
-                self:setsize( SCREEN_WIDTH * 10, 20 ):zoom(zoom):diffuse(color):fadeVertically(1)
+                self:setsize( SCREEN_WIDTH * 10, 20 ):diffuse(color):fadeVertically(1)
 
                 self:x( self:GetWidth() / 2 )       if i == 2 then self:rotationx(90) end
 
