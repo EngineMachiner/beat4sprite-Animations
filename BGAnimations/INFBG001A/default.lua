@@ -3,7 +3,7 @@ local Infinitesimal = beat4sprite.Modules.Infinitesimal
 
 local Grid = Infinitesimal.Background { params = ... }
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
 
     beat4sprite.Builder.SongBackground():Load(),
 

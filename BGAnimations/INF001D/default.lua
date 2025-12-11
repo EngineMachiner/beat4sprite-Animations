@@ -15,4 +15,4 @@ local Animation = loadfile(path)() .. {
 
 }
 
-return beat4sprite.ActorFrame { Animation }
+return beat4sprite.BaseFrame { Animation }

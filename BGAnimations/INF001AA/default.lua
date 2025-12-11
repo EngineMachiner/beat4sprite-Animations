@@ -5,7 +5,7 @@ local path = beat4sprite.animationPath(name)
 
 local path2 = beat4sprite.animationPath("INF001AA", "Texture.lua")
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
 
     OnCommand=function(self)
 
