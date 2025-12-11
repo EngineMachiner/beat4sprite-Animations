@@ -36,7 +36,7 @@ local Zoom = builder:zoom()             local scale = builder.Scale
 local Scroll = builder.Scroll           builder.Scroll = nil
 
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
 
     beat4sprite.ActorFrame {
 

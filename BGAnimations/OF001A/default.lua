@@ -126,7 +126,7 @@ end
 
 local FOV = tapLua.scaleFOV(80)
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
 
 	SoundWaves.Quad(),      Rings,        BigRing,
 

@@ -59,7 +59,7 @@ local Texture = builder.Texture                 local zoom = builder.Zoom * scal
 Renderer:LoadBy( Texture[1] ):zoom(zoom)           local Height = Renderer:GetZoomedHeight()
 
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
 
     SoundWaves.Quad() .. { OnCommand=function(self) self:Center() end },
 

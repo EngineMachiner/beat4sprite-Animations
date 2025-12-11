@@ -1,7 +1,7 @@
 
 local SoundWaves = beat4sprite.Modules.SoundWaves           local componentDivision = Astro.Vector.componentDivision
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
 
 	SoundWaves.Quad() .. { OnCommand=function(self) self:Center() end },
 

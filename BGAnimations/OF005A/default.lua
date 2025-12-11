@@ -10,7 +10,7 @@ local FOV = tapLua.scaleFOV(100)            local rate = beat4sprite.Actor.state
 
 local scale = SCREEN_HEIGHT / 720           local r = 10 / scale
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
 
 	SoundWaves.Quad(),          OnCommand=function(self) self:setupDepth(FOV) end,
 

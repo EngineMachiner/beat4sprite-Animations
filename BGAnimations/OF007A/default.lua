@@ -47,7 +47,7 @@ builder.Sprite = {
 builder.Output = { LoadSpriteCommand=function(self) self:rotationz( Angle + 45 ) end }
 
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
 
 	SoundWaves.Quad() .. { OnCommand=function(self) self:Center() end },
     

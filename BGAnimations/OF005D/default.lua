@@ -53,7 +53,7 @@ local function grid(z)
 
 end
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
 
     checkerBoard,
 

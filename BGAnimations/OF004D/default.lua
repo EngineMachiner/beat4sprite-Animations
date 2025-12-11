@@ -5,7 +5,7 @@ local SoundWaves = beat4sprite.Modules.SoundWaves           local preferences = 
 local Colors = preferences.Colors               Colors = { Colors.titleBGA,     Colors.titleBGB }
 
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
 
 	beat4sprite.ScreenQuad( Colors[1] ) .. {
 
