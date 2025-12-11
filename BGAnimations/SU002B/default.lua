@@ -50,6 +50,9 @@ for i = 1, n do
 
         JudgmentMessageCommand=function(self, params)
 
+            if params.HoldNoteScore then return end
+            
+
             local score = params.TapNoteScore
             
             local isValid = isFocused and not score:match("Miss")

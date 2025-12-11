@@ -53,6 +53,8 @@ for i = 1, n do
     
     local Builder = beat4sprite.Builder {}
 
+    local color = i > n / 2 and Color.Purple or Color.Red
+
     t[#t+1] = beat4sprite.Quad {
 
         OnCommand=function(self)
@@ -80,8 +82,6 @@ for i = 1, n do
             
             isFocused = false       self:GetParent():queuecommand("Select")
 
-
-            local color = tapLua.Color.random()
 
             local rate = self:statesRate()                  self:stoptweening():diffuse(color)
 
