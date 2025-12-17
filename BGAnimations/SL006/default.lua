@@ -1,0 +1,18 @@
+
+local Starlight = beat4sprite.Modules.Starlight         local bga = Starlight.bga
+
+local builder = beat4sprite.Builder {
+
+    Texture = bga("ScreenEvaluationNormal decorations/EXOverlay", "hex2.png"),
+
+    Script = "Morph/Flag",          Effect = { Period = 4 },        Alpha = 0.125,
+
+    Layers = { Back = true },       Type = 2
+
+}
+
+return beat4sprite.ActorFrame {
+    
+    Starlight.Background(),          builder:merge(...):Load()
+
+}
