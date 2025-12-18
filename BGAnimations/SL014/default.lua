@@ -1,7 +1,7 @@
 
 local Starlight = beat4sprite.Modules.Starlight         local bga = Starlight.bga
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
     
     Starlight.Background(),
 

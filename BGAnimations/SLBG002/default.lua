@@ -5,7 +5,7 @@ local builder = beat4sprite.Builder {
 
     Texture = bga("ScreenStageInformation decorations", "star.png"),
 
-    Script = "Particles/Depth/Spread",          Rate = 2,        Zoom = 0.333,
+    Script = "Particles/Depth/Spread",          Rate = 2,        Zoom = 0.25,
 
     Sprite = { Motion2Command=function(self) self:rotationz( self:GetRotationZ() + 180 ) end },
 

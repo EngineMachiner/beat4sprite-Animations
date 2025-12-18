@@ -13,4 +13,4 @@ local builder = beat4sprite.Builder {
 
 }
 
-return beat4sprite.ActorFrame { Starlight.Background(),      builder:merge(...):Load() }
+return beat4sprite.BaseFrame { Starlight.Background(),      builder:merge(...):Load() }

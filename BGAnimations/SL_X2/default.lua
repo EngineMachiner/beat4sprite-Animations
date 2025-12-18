@@ -5,7 +5,7 @@ local function file(file) return bga( "ScreenWithMenuElements background/X2", fi
 
 local rate = beat4sprite.Actor.statesRate( nil, false ) * 2
 
-return Def.ActorFrame{
+return beat4sprite.BaseFrame{
 	Def.Sprite{
 		 Texture=file("bg.png"),
 		 OnCommand=function(s) s:valign(1):xy(_screen.cx,SCREEN_BOTTOM):setsize(SCREEN_WIDTH,744) end,

@@ -3,7 +3,7 @@ local Starlight = beat4sprite.Modules.Starlight         local graphic = Starligh
 
 local style = Astro.Table.random { "Single", "Versus", "Double" }
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
     
     Starlight.Background(),
 

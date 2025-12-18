@@ -15,7 +15,7 @@ local function Particles( texture, args )
 
 end
 
-return beat4sprite.ActorFrame {
+return beat4sprite.BaseFrame {
     
     Starlight.Background(),      Particles("starlight.png"),
 

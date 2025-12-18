@@ -64,7 +64,7 @@ t[#t+1] = beat4sprite.ActorFrame{
 	};
 	beat4sprite.ActorFrame{
 	OnCommand=function(s) s:onGameplay():spin():effectmagnitude(-1.5/rate,2/rate,-1.5/rate):Center():zoom(0.5) end,
-		tapLua.Model{
+		beat4sprite.Model {
 			File = file("SuperNOVABG.txt"),
 			OnCommand=function(s) s:clearzbuffer(0):rotationx(-90):rotationz(-90):diffuse(Alpha(Color.White,0.75)):blend(Blend.Add):zoom(8) end,
 		};

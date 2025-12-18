@@ -26,4 +26,4 @@ local Actor = Builder {
 Actor = Actor:merge(...):Load()
 
 
-return beat4sprite.ActorFrame { Background, Actor }
+return beat4sprite.BaseFrame { Background, Actor }

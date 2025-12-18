@@ -5,7 +5,7 @@ local function file(file) return bga( "ScreenWithMenuElements background/SN2", f
 
 local rate = beat4sprite.Actor.statesRate( nil, false ) * 2
 
-local t = beat4sprite.ActorFrame{};
+local t = beat4sprite.BaseFrame{};
 local p = {
 	red = color("1,0,0,0.812"),
 	green = color("0,1,0,0.812"),
