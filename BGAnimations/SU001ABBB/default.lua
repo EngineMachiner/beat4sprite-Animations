@@ -11,7 +11,7 @@ return beat4sprite.ActorFrame {
 
         Texture = graphic("karen.png"),         Script = "Morph/Flag",
 
-        Sprite = { OnCommand=function(self) self:zoom( self:GetZoom() / 2 ) end }
+        Sprite = { OnCommand=function(self) self:zoom( self:GetZoom() / 1.75 ) end }
 
     }
 
