@@ -19,9 +19,9 @@ return Builder.Load {
 
         Dynamic = true,
 
-		Texture = "1st/7 1x2.png",      States = { Last = 2 },          Matrix = Astro.Vector(1,3.75),
+		Texture = "1st/7 1x2.png",      States = { Last = 2 },          Matrix = Astro.Vector( 1, 3.75 ),
         
-        Sprite = { OnCommand=function(self) local i = self.TilePos.y - 1        self:addy( i * 20 ) end }
+        Sprite = { OnCommand=function(self) local i = self.Index - 1        self:addy( i * 20 ) end }
 
 	}
 
