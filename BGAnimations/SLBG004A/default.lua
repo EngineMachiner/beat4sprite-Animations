@@ -9,7 +9,7 @@ local Background = Builder.SongBackground():Load() .. {
 
 local Actor = Builder {
 
-    Texture = "Starlight/Star (doubleres).png",
+    Texture = "Starlight/Star (doubleres).png",         Dynamic = true,
 
     Sprite = {
 

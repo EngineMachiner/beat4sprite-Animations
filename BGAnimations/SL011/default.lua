@@ -9,7 +9,7 @@ local builder = beat4sprite.Builder {
 
     Colors = { Color.White, Color.Invisible },      Effect = { Period = 8 },
 
-    Output = { LoadSpriteCommand=function(self) self:addimagecoords( SCREEN_WIDTH, 0 ) end }
+    Output = { TextureCommand=function(self) self:addimagecoords( SCREEN_WIDTH, 0 ) end }
 
 }
 

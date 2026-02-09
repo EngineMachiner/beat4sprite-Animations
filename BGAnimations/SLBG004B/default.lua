@@ -9,6 +9,8 @@ local Background = Builder.SongBackground():Load() .. {
 
 local Actor = Builder {
 
+    Dynamic = true,
+
     Texture = "Starlight/SStar (doubleres).png",       Blend = "add",      Alpha = 0.75,
 
     Sprite = {
