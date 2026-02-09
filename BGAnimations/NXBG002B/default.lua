@@ -13,15 +13,21 @@ local Background = Builder.SongBackground():Load() .. {
 }
 
 
+local shadersEnabled = tapLua.shadersEnabled()
+
+local Alpha = shadersEnabled and 1 or 0.03          local Period = shadersEnabled and 2 or 16
+
 local Actor = Builder {
 
     Texture = graphic("ScreenWithMenuElements background", "spiral.png"),
 
-    Script = "Morph/Pulse",      Layers = { Back = "Hidden" },      Effect = { Period = 16 },
+    Script = "Morph/Pulse",      Layers = { Back = "Hidden" },      Effect = { Period = Period },
+
+    Alpha = Alpha
 
 }
 
-Actor = Actor:merge(...):Load() .. { OnCommand=function(self) self:diffusealpha(0.03) end }
+Actor = Actor:merge(...):Load()
 
 
 return beat4sprite.ActorFrame { Background, Actor }

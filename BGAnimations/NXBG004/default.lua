@@ -12,7 +12,7 @@ return Builder.Load {
 
     Sprite = { OnCommand=function(self) self.statesDelay = 1 / 4 end },
 
-    Output = { OnCommand=function(self) self:customtexturerect(0,0,1.5,1.5) end },
+    Output = { Scale = 0.875,       Offset = false },
 
     Rate = 2,           Layers = { Back = Background }
 
