@@ -7,6 +7,6 @@ return beat4sprite.Builder.Load {
 
     Texture = "OutFox/SoundWaves/A 6x10.png",          Layers = { Front = Quad },
 
-    States = { First = 1, Last = 60 },          Zoom = 2.85
+    States = { Last = 60 },          Zoom = 2.85,       Output = { Offset = false }
 
 }

@@ -20,11 +20,9 @@ local scale = SCREEN_HEIGHT / 720
 
 local builder = beat4sprite.Builder {
 
-    Texture = { "OutFox/SoundWaves/A 6x10.png" },           Zoom = 1.25,
+    Texture = "OutFox/SoundWaves/A 6x10.png",       Dynamic = true,
 
-    Colors = { BGColor, Color.White },          Rate = 3,           Scroll = Vector(),
-
-    Matrix = function(matrix) local x = matrix.x          return Vector( x, 1 ) end
+    Colors = { BGColor, Color.White },          Rate = 3,           Scroll = Vector()
 
 }
 
@@ -49,7 +47,7 @@ builder.Sprite = {
 
 }
 
-builder.Composition = { OnCommand=function(self) self:rotationz(45):zoom(1.4) end }
+builder.Composition = { OnCommand=function(self) self:rotationz(45):zoom(1.5) end }
 
 builder.Output = { OnCommand=function(self) self:xy(0,0) end }
 
@@ -57,7 +55,6 @@ builder.Output = { OnCommand=function(self) self:xy(0,0) end }
 local Texture = builder.Texture                 local zoom = builder.Zoom * scale
 
 Renderer:LoadBy( Texture[1] ):zoom(zoom)           local Height = Renderer:GetZoomedHeight()
-
 
 return beat4sprite.BaseFrame {
 
@@ -74,9 +71,7 @@ return beat4sprite.BaseFrame {
             if self:GetTexture() then return end
 
 
-            self:setSizeVector(pos):EnableAlphaBuffer(true):Create()
-
-            self:queuecommand("Tile")
+            self:setSizeVector(pos):Create():queuecommand("Tile")
 
         end,
 
@@ -86,23 +81,31 @@ return beat4sprite.BaseFrame {
             
             local Builder = beat4sprite.Builder {
                 
-                Texture = Texture,    Blend = 'add',    Zoom = 1 / scale,
+                Texture = Texture,    Blend = 'add',    Zoom = 1 / scale,       Dynamic = true,
 
                 Sprite = {
                     
                     OnCommand=function(self)
 
                         local matrix = self.TileParent.Matrix              local x = self.TilePos.y
-                        
-                        x = matrix.y * 0.5 - x          x = math.ceil(x)            x = math.abs(x) * 128
 
-                        x = Vector(x) * scale           self:moveTextureBy(x)
+                        x = matrix.y / 2 - x            x = math.ceil(x)            x = math.abs(x) * 128
+
+                        x = Vector( x, Height / 2 ) * scale           self:moveTextureBy(x)
                     
                     end
                 
                 },
 
-                Output = { LoadSpriteCommand=function(self) self:rotationz( Angle ):zoom( self:GetZoom() * 1.8 ) end }
+                Output = {
+                    
+                    TextureCommand=function(self)
+                        
+                        self:rotationz(Angle):zoom( self:GetZoom() * 1.8 ):addimagecoords( 0, - Height )
+                    
+                    end
+                
+                }
             
             }
 

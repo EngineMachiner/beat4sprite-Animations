@@ -14,7 +14,7 @@ local Builder = beat4sprite.Builder {
     
     Sprite = { OnCommand=function(self) self:setEffect("diffuseshift") end },
 
-    Output = { LoadSpriteCommand=function(self) self:zoom( self:GetZoom() * 3 ) end }
+    Output = { TextureCommand=function(self) self:zoom( self:GetZoom() * 3 ) end }
 
 }
 

@@ -12,7 +12,7 @@ local Builder = beat4sprite.Builder {
 
 	Texture = "OutFox/SoundWaves/A 6x10.png",         Zoom = 2.85,
 
-	States = { First = 1, Last = 60 },              Layers = { Back = Background },
+	States = { Last = 60 },     Layers = { Back = Background },
     
     Sprite = {
 
@@ -24,6 +24,8 @@ local Builder = beat4sprite.Builder {
 
     Output = {
         
+        Offset = false,
+
         OnCommand=function(self)
             
             self:diffusebottomedge( Colors[1] ):diffusetopedge( Colors[2] )

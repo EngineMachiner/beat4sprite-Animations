@@ -13,11 +13,13 @@ local BGColor = preferences.Colors.titleBGA
 
 local builder = beat4sprite.Builder {
 
-    Texture = { "OutFox/SoundWaves/A 6x10.png" },         Blend = 'add',
+    Dynamic = true,
 
-    Colors = { BGColor, Color.White },          Rate = 4,           Zoom = 2.85,
+    Texture = "OutFox/SoundWaves/A 6x10.png",         Blend = 'add',
 
-    Angle = 0,          Matrix = function(matrix) matrix.y = matrix.x       return matrix end
+    Colors = { BGColor, Color.White },          Rate = 4,       Angle = 0,
+    
+    Composition = { OnCommand=function(self) self:zoom(1.3) end }
 
 }
 
@@ -44,7 +46,7 @@ builder.Sprite = {
 
 }
 
-builder.Output = { LoadSpriteCommand=function(self) self:rotationz( Angle + 45 ) end }
+builder.Output = { TextureCommand=function(self) self:rotationz( Angle + 45 ):zoom( self:GetZoom() * 2 ) end }
 
 
 return beat4sprite.BaseFrame {

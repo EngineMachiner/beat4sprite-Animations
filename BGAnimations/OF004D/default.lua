@@ -15,7 +15,7 @@ return beat4sprite.BaseFrame {
 
 	beat4sprite.Builder.Load {
 
-        Zoom = 3,           Blend = 'add',
+        Zoom = 3,           Blend = 'add',      Dynamic = true,
 
 		Texture = "OutFox/SoundWaves/A 6x10.png",         States = { Last = 60,    Position = true },
         

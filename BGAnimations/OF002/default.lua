@@ -24,7 +24,9 @@ local builder = beat4sprite.Builder {
 
     Colors = Colors,        Sprite = Sprite,        Zoom = 0.75,        Mirror = true,          Blend = 'add',
 
-    Rotation = Vector { z = 90 },        Effect = { Period = 2 },           Rate = 4
+    Rotation = Vector { z = 90 },        Effect = { Period = 2 },           Rate = 4,
+
+    Output = { Offset = false }
 
 }
 

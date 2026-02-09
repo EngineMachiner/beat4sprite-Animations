@@ -14,7 +14,7 @@ local function Actor(t)
 
         Texture = graphic("_bg big grid.png"),         Colors = BGColor,       Zoom = 1,       Blend = 'add',
 
-        Output = { LoadSpriteCommand=function(self) self:zoom( self:GetZoom() * 2 ):setEffect("spin") end }
+        Output = { TextureCommand=function(self) self:zoom( self:GetZoom() * 2 ):setEffect("spin") end }
 
     }
 

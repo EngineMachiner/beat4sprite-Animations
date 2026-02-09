@@ -5,7 +5,7 @@ local SoundWaves = beat4sprite.Modules.SoundWaves           local graphic = Soun
 
 return loadfile( Path ) {
 
-    Texture = { graphic("_bg small grid.png") },
+    Texture = graphic("_bg small grid.png"),        Dynamic = true,
     
     ScreenScale = false,        Mirror = true,          Scroll = false,         Zoom = 5,
 

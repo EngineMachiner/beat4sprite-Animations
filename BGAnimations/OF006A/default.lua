@@ -8,6 +8,8 @@ local preferences = SoundWaves.preferences()                local Color = prefer
 
 local Builder = beat4sprite.Builder {
 
+    Dynamic = true,
+
     Blend = 'add',          Color = Color,          Rate = 2,           ScreenScale = true,
     
     Texture = graphic("_bg small grid.png"),            Scroll = Vector("Up"),          Filter = false
