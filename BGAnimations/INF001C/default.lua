@@ -1,15 +1,13 @@
 
 local Builder = beat4sprite.Builder         local name = ... or "INF001A"
 
-local path = beat4sprite.animationPath(name)
+local path = beat4sprite.animationPath(name)        local builder = Builder {}
 
 local Animation = loadfile(path)() .. {
 
     OnCommand=function(self)
 
-        self:effectclock("beat")
-
-        self.beat4sprite = Builder { Colors = "RainbowBlink" }          self:setupTimers()
+        self:init(builder):effectclock("beat"):setupRainbowBlink()
 
         self:SetUpdateFunction( function() self:playcommand("UpdateFunction") end )
 

@@ -7,7 +7,7 @@ return Builder.Load {
 
     Texture = "Infinitesimal/loops (doubleres) 2x1.png",
     
-    States = { Last = 2,    Types = { "Static", "Position" } },        Zoom = 0.25,        Rate = 2,
+    States = { Last = 2,    Types = { "Idle", "Position" } },        Zoom = 0.25,        Rate = 2,
 
     Script = "Particles/ScreenBounce",          Layers = { Back = SongBG:Load() }
 
