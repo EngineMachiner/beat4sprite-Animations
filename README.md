@@ -4,6 +4,9 @@
 
 This repository contains collections of gameplay animations for **[OutFox](https://github.com/TeamRizu/OutFox)** using **[beat4sprite](https://github.com/EngineMachiner/beat4sprite)**.
 
+### DISCLAIMER
+This project is a non-commercial, fan-made educational resource and is not affiliated with, authorized by, or endorsed by KONAMI. All the textures are the exclusive property of KONAMI.
+
 Each branch in this repository contains theme inspired animations.
 
 [Video Example](https://www.youtube.com/watch?v=NKW4aDbaQvM)
