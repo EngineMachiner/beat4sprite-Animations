@@ -15,7 +15,7 @@ local function star(self)
     
     starBuilder = starBuilder or self.beat4sprite:merge { States = { First = 2, Last = 14, Types = {} } }
 
-    self:LoadBy(path):initParticle( starBuilder, i )
+    self:Load(path):initParticle( starBuilder, i )
 
 end
 
