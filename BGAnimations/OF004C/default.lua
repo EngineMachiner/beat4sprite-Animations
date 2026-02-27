@@ -54,7 +54,7 @@ builder.Output = { OnCommand=function(self) self:xy(0,0) end }
 
 local Texture = builder.Texture                 local zoom = builder.Zoom * scale
 
-Renderer:LoadBy( Texture[1] ):zoom(zoom)           local Height = Renderer:GetZoomedHeight()
+Renderer:Load( Texture[1] ):zoom(zoom)           local Height = Renderer:GetZoomedHeight()
 
 return beat4sprite.BaseFrame {
 
