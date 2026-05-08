@@ -19,7 +19,7 @@ return Builder.Load {
 
         Dynamic = true,
 
-        Texture = "4th/1 4x7.png",      States = { Last = 25 },     Blend = "add",
+        Texture = "4th/1 8x3.png",      States = { Last = 24,   Rate = 0.5 },     Blend = "add",
 
         Sprite = {
             
