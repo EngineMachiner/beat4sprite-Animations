@@ -1,4 +1,6 @@
 
+-- Missing footage.
+
 local params = beat4sprite.create( {
 	File = "5th/Sprites/Gradients/B004 8x8.png",
 	Columns = { -2, 1 },	Rows = { -1, 0 },
