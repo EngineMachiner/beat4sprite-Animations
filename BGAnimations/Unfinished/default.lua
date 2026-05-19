@@ -1,2 +1,2 @@
 
-local BGA = beat4sprite.randomAnimation()      return BGA
+return beat4sprite.randomAnimation()
