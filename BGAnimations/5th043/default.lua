@@ -23,7 +23,7 @@ local builder = beat4sprite.Builder.Retro {
 
             RectCommand=function(self)
                 
-                local offset = self.ScrollSize          self:moveTextureBy(offset)
+                local offset = self.TextureSize          self:moveTextureBy(offset)
             
             end
         
