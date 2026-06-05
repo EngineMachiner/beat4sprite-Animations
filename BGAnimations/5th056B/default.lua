@@ -7,7 +7,7 @@ local input = {
 
     [2] = {
         
-        Texture = "5th/3 4x3.png",      States = { Last = 5, Rate = 0.5 },
+        Texture = "5th/3 4x3.png",      States = { Last = 6, Rate = 0.5 },
 
         Sprite = { OnCommand=function(self) self:setEffect("spin") end },
         

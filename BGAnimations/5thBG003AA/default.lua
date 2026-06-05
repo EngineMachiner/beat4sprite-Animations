@@ -3,43 +3,59 @@ local Builder = beat4sprite.Builder.Retro
 
 local i = 1        local n = 4 -- Number of actors / textures.
 
-local function draworder(self)
+local Cycle1 = {
 
-    local i = self.drawOrder        if not i then return self:draworder( n - self.Index ) end
-    
-    i = i + 1       return self:draworder( i % n )
+    OnCommand=function(self) self:stoptweening() end,
 
-end
-
-local Cycle = {
-
-    InitCommand=function(self) self.Index = i      i = i + 1 end,
-
-    CycleSetupCommand=function(self) self:playcommand("Animation") end,
-
-    CycleOnCommand=function(self) self:init( self.beat4sprite ):queuecommand("Cycle") end,
-
-    AnimationCommand=function(self)
+    CycleSetupCommand=function(self)
 
         local builder = self.beat4sprite.Cycle          local t = self:tweenRate() * builder.Rate * 2
 
         self:queuecommand("Motion"):sleep(t):queuecommand("Prepare")
 
+    end
+
+}
+
+local Cycle2 = {
+
+    InitCommand=function(self)
+        
+        self.z = function( self, z ) self:GetParent():z(z)      return self end
+
+        self.mainParent = function() return self:GetParent():GetParent() end
+        
+        self.Index = i      i = i + 1       self:mainParent():SetDrawByZPosition(true)
+
+    end,
+
+    CycleOnCommand=function(self)
+
+        self.CycleTimes = self:GetParent().CycleTimes           self:init( self:GetParent().beat4sprite )
+
+        local z = n - self.Index - 1            self:z(z):queuecommand("Cycle")
+
+    end,
+
+    CyclePlayCommand=function(self)
+        
+        local s = self.CycleTimes[2]
+
+        Cycle1.CycleSetupCommand(self)  self:sleep(s):queuecommand("Cycle")
+        
     end,
 
     CycleCommand=function(self)
 
-        local s = self.CycleTimes
-
-        self:sleep( s[1] ):queuecommand("DrawOrder"):playcommand("Animation"):sleep( s[2] ):queuecommand("Cycle")
+        local s = self.CycleTimes[1]
+        
+        self:sleep(s):queuecommand("BroadcastSort"):queuecommand("CyclePlay")
 
     end,
 
-    DrawOrderCommand=function(self)
+    BroadcastSortCommand=function(self) self:mainParent():playcommand("Sort") end,
 
-        self:GetParent():RunCommandsOnChildren(draworder):SortByDrawOrder()
-
-    end
+    SortCommand=function(self) local z = self:GetParent():GetZ() + 1       self:z( z % n ) end
 
 }
 
@@ -55,7 +71,13 @@ end
 
 for i = 1, n do Actors[i] = Builder { Texture = Texture(i),     Script = "Morph/Split" } end
 
-for k,v in pairs(Actors) do Actors[k] = v:Load() .. Cycle end
+for k,v in pairs(Actors) do
+    
+    -- [2] because thats the main script layer in Builder.lua
+
+    local Actor = v:Load() .. Cycle1        Actor[2] = Actor[2] .. Cycle2           Actors[k] = Actor
+
+end
 
 local Background = Builder.Background { Texture = Texture(1) }           Background = Background:Load()
 
